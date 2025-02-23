@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Widget Library Demo</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <!--div class="section">
+            <h2>Complex Widget Demo</h2>
+            <div id="complex-container">
+                <div widget="widgets/complex"></div>
+            </div>
+        </div-->
+
+        <div class="section">
+            <h2>Test DOM Tree</h2>
+            <div id="root">
+                <div widget="widgets/a">
+                    <div widget="widgets/b"></div>
+                </div>
+                <div></div>
+                <div widget="widgets/c"></div>
+                <div widget="widgets/delayed"></div>
+            </div>
+        </div>
+
+        <div id="info">
+            <h3>Widget Information</h3>
+            <div>Selected: <span id="selectedPath">None</span></div>
+            <div>State: <span id="selectedState">None</span></div>
+            <div>Technical Info:</div>
+            <pre id="techInfo"></pre>
+        </div>
+
+        <script type="module" src="index.js"></script>
+    </body>
+</html>

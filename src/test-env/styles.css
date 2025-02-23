@@ -1,0 +1,368 @@
+.section {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+/* Widget states */
+[widget] {
+    padding: 10px;
+    margin: 5px;
+    border: 2px solid #ddd;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+[widget]::before {
+    content: attr(widget);
+    position: absolute;
+    top: -8px;
+    left: 5px;
+    background: white;
+    padding: 0 5px;
+    font-size: 12px;
+    color: #666;
+}
+
+.widget-initializing {
+    border-color: yellow;
+    background: #ffffd0;
+    animation: pulse-yellow 1s infinite;
+}
+
+.widget-initialized {
+    border-color: green;
+    background: #d0ffd0;
+    animation: fade-in 0.5s;
+}
+
+.widget-destroyed {
+    border-color: red;
+    background: #ffd0d0;
+    opacity: 0.7;
+    transform: scale(0.95);
+}
+
+.widget-destroying {
+    animation: fade-out 0.3s;
+    opacity: 0.5;
+    transform: scale(0.9);
+}
+
+/* Selected node highlighting */
+.selected {
+    outline: 3px solid blue !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+}
+
+/* Animations */
+@keyframes pulse-yellow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 0, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 255, 0, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 0, 0);
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+}
+
+@keyframes loading-pulse {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Button styles */
+button {
+    padding: 8px 16px;
+    margin: 4px;
+    border: none;
+    border-radius: 4px;
+    background: #4caf50;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: #45a049;
+    transform: translateY(-1px);
+}
+
+button#removeWidgetButton {
+    background: #f44336;
+}
+
+button#removeWidgetButton:hover {
+    background: #da190b;
+}
+
+/* Info panel */
+#info {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    width: 300px;
+    background: #f8f8f8;
+    border: 1px solid #ccc;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+#info:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+#info pre {
+    background: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    overflow: auto;
+    max-height: 200px;
+    border: 1px solid #eee;
+}
+
+/* Complex Widget Styles */
+.widget-complex-content {
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.complex-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.complex-header .status {
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.9em;
+    background: #f0f0f0;
+    transition: all 0.3s ease;
+}
+
+.complex-header .status.loading {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.complex-header .status.ready {
+    background: #d4edda;
+    color: #155724;
+}
+
+.complex-header .status.error {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.complex-body {
+    display: grid;
+    gap: 20px;
+}
+
+.complex-body ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.complex-body ul li {
+    padding: 10px;
+    margin: 5px 0;
+    background: #f8f9fa;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.complex-body ul li:hover {
+    background: #e9ecef;
+    transform: translateX(5px);
+}
+
+.nested-widgets {
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.controls button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#addNestedBtn {
+    background: #28a745;
+    color: white;
+}
+
+#addNestedBtn:hover {
+    background: #218838;
+}
+
+#toggleDataBtn {
+    background: #17a2b8;
+    color: white;
+}
+
+#toggleDataBtn:hover {
+    background: #138496;
+}
+
+/* Notification System */
+.widget-notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    border-radius: 8px;
+    color: white;
+    z-index: 1000;
+    animation: slide-in 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.widget-notification-error {
+    background: #ff4444;
+}
+
+.widget-notification-warning {
+    background: #ffbb33;
+}
+
+.widget-notification-info {
+    background: #33b5e5;
+}
+
+.loading {
+    animation: loading-pulse 1.5s infinite;
+}
+
+[widget].widget-stage-before {
+    border-left: 3px solid yellow;
+}
+
+[widget].widget-stage-after {
+    border-left: 3px solid orange;
+}
+
+[widget].widget-stage-complete {
+    border-left: 3px solid green;
+}
+
+.widget-delayed-content {
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.delayed-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.delayed-status {
+    font-size: 0.9em;
+    color: #666;
+    padding: 4px 8px;
+    background: #e9ecef;
+    border-radius: 4px;
+}
+
+.progress-bar {
+    height: 20px;
+    background: #e9ecef;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.progress {
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, #4caf50, #45a049);
+    transition: width 0.1s ease;
+}
+
+.state-info {
+    text-align: center;
+    color: #666;
+    margin: 10px 0;
+}
+
+#cancelBtn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+#cancelBtn:hover {
+    background: #c82333;
+}
