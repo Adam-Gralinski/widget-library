@@ -1,3 +1,8 @@
+# NOTE
+
+THIS IS NOT A LIBRARY THAT WILL BE PUBLISHED TO NPM.
+NOR SHOULD NOT BE USED IN REAL APPLICATIONS SINCE IT WON"T BE FURTHER DEVELOPED.
+
 # Widget Library
 
 A ~~lightweight~~, environment-agnostic library for managing dynamic widget initialization and lifecycle in both browser and Node.js environments.
